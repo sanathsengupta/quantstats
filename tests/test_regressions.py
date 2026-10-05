@@ -18,14 +18,6 @@ from quantstats import reports, stats, utils
 from quantstats._compat import get_frequency_alias, safe_resample
 
 
-@pytest.fixture
-def daily_returns():
-    """A well-behaved daily return series."""
-    rng = np.random.RandomState(7)
-    dates = pd.date_range("2020-01-01", periods=400, freq="D")
-    return pd.Series(rng.normal(0.0005, 0.01, 400), index=dates, name="Strategy")
-
-
 class TestWeeklyAggregation:
     """DatetimeIndex.week was removed in pandas 2.0."""
 

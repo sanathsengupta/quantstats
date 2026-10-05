@@ -94,6 +94,16 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v --tb=short"
 
+[tool.coverage.run]
+branch = true
+source = ["quantstats"]
+# Imported nowhere in the package; see the coverage baseline plan.
+omit = ["quantstats/_numpy_compat.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+
 [tool.pyright]
 include = ["quantstats"]
 exclude = ["tests"]
